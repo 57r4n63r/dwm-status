@@ -1,4 +1,6 @@
+import sys
 import os
+import time
 import configparser
 from pathlib import Path
 from pprint import pprint
@@ -28,6 +30,9 @@ class Core:
     def loadModules(self):
         importer = Importer.getInstance()
         importer.loadModules()
+        # init all modules
+        for module in importer.getModules():
+            module.init()
 
 
     def actions(self):
@@ -36,27 +41,24 @@ class Core:
 
     def print(self):
         importer = Importer.getInstance()
-        output = ""
-        # init all modules
-        for module in importer.getModules():
-            module.init()
-
-        # getString of all module
-        for module in importer.getModules():
-            output = output + " ["+module.getString()+"] "
-
-        print(output);
+        while True:
+            output = ""
+            # getString of all module
+            for module in importer.getModules():
+                output = output + " ["+module.getString()+"] "
+            sys.stdout.write("\033[F")
+            sys.stdout.write("\033[K")
+            print(output, flush=True);
+            time.sleep(1)
 
     def xsetroot(self):
         importer = Importer.getInstance()
         output = ""
-        # init all modules
-        for module in self.modules:
-            module.init()
 
-        # getString of all module
-        for module in self.modules:
-            output = output + "[ "+module.getString()+" ]"
+        while True:
+            # getString of all module
+            for module in self.modules:
+                output = output + "[ "+module.getString()+" ]"
 
         #@todo xsetroot
 
