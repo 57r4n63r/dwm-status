@@ -13,7 +13,7 @@ class Network(AbstractModule):
     additionnal = []
     interfaces = []
     wifiIcon = 'wifi_good'
-    wifiIcon = 'wired'
+    wiredIcon = 'wired'
 
     def init(self):
         core = Core.getInstance()
