@@ -9,6 +9,9 @@ class Time(AbstractModule):
     timeFormat = "%Y/%m/%d %H:%M:%S"
 
     def init(self):
+        core = Core.getInstance()
+        if 'time' in core.configurations and 'zone' in core.configurations['time']:
+            self.timeZone = core.configurations['time']['zone']
         os.environ['TZ'] = self.timeZone
 
     def getString(self):
