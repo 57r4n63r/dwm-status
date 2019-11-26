@@ -7,6 +7,7 @@ from pprint import pprint
 from Core.Actions import Actions
 from importlib import import_module
 from Modules.Importer import Importer
+from subprocess import call, check_output
 
 class Core:
     __instance = None
@@ -51,12 +52,14 @@ class Core:
 
     def xsetroot(self):
         importer = Importer.getInstance()
-        output = ""
 
         while True:
+            output = ""
             # getString of all module
             for module in importer.getModules():
                 output = output + "[ "+module.getString()+" ]"
+
+            call(['xsetroot', '-name',output], shell=False)
             time.sleep(1)
 
     @staticmethod
