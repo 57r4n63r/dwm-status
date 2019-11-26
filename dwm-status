@@ -1,2 +1,2 @@
 # !/usr/bin/python
-python /opt/dwm-status/run.py
+python /opt/dwm-status/run.py --output=xsetroot

@@ -8,8 +8,6 @@ from Core.Actions import Actions
 from importlib import import_module
 from Modules.Importer import Importer
 
-#from Modules.Network.Module import Network
-
 class Core:
     __instance = None
 
@@ -57,10 +55,9 @@ class Core:
 
         while True:
             # getString of all module
-            for module in self.modules:
+            for module in importer.getModules():
                 output = output + "[ "+module.getString()+" ]"
-
-        #@todo xsetroot
+            time.sleep(1)
 
     @staticmethod
     def getInstance():
