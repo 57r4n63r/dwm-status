@@ -2,7 +2,7 @@
 
 pkgname=dwm-status
 pkgrel=1
-pkgver=2.0.0
+pkgver=2.0.1
 pkgdesc="Status bar for dwm"
 url="https://github.com/57r4n63r/dwm-status.git"
 provides=('dwm-status')
@@ -36,6 +36,6 @@ package() {
     install -D -m755 "./dwm-status" "${pkgdir}/usr/bin/dwm-status"
 }
 
-md5sums=('377b7523b746dc6672e0fd8fda7c16d4'
+md5sums=('d45971dd598758f674469f0bb679a030'
          'd4f3553b3ad870d92c5073c826862fcb'
          'a6457d02a29cc5b4517207e13246efe2')
