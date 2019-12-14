@@ -65,9 +65,14 @@ class Network(AbstractModule):
 
     def getStates(self):
         icons = []
-
-        wired = self.configurations['networking']['wired']
-        wifi  = self.configurations['networking']['wifi']
+        if 'wired' in self.configurations['networking']:
+            wired = self.configurations['networking']['wired']
+        else:
+            wired = 'off'
+        if 'wifi' in self.configurations['networking']:
+            wifi = self.configurations['networking']['wifi']
+        else:
+            wifi = 'off'
 
         if(wifi != 'off'):
             if(self.isInterfaceUp(wifi)):
