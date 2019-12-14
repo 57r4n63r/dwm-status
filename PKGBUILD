@@ -22,11 +22,11 @@ package() {
     install -d "$pkgdir"/opt
     install -d "$pkgdir"/opt/dwm-status
 
-    unzip lib.zip
+    unzip -o lib.zip
 
     cp -r ./Modules "$pkgdir"/opt/"$pkgname"
     cp -r ./Core "$pkgdir"/opt/"$pkgname"
-    cp -r ./run.py "$pkgdir"/opt/"$pkgname"
+    cp -Lr ./run.py "$pkgdir"/opt/"$pkgname"
 
     find "$pkgdir"/opt/"$pkgname"/ -type f -exec chmod 644 {} \;
     chmod 755 "$pkgdir"/opt/"$pkgname"
