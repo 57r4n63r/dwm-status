@@ -2,7 +2,7 @@
 
 pkgname=dwm-status
 pkgrel=1
-pkgver=2.0.2
+pkgver=2.0.3
 pkgdesc="Status bar for dwm"
 url="https://github.com/57r4n63r/dwm-status.git"
 provides=('dwm-status')
