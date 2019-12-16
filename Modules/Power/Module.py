@@ -40,7 +40,7 @@ class Power(AbstractModule):
         if capacity == "0" or status == "Charging":
             statusIcon = Icons.get( 'battery_pluged' )
 
-        floatLevel = float(capacity) / float(chargeFull) * 100
+        floatLevel = float(chargeNow) / float(chargeFull) * 100
         level = str(int(floatLevel)) + '%'
 
         return level+' | '+statusIcon
