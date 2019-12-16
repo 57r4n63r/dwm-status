@@ -19,7 +19,15 @@ class Importer:
         self.modules.append(moduleClass())
 
     def getModules(self):
-        return self.modules
+        orderedDict = {}
+        for module in self.modules:
+            orderedDict[module.order] = module
+        keys = reversed(sorted(orderedDict))
+
+        orderedList = []
+        for key in keys:
+            orderedList.append(orderedDict[key])
+        return orderedList
 
     @staticmethod
     def getInstance():

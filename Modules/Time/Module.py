@@ -8,6 +8,8 @@ class Time(AbstractModule):
     timeZone = "Canada/Eastern"
     timeFormat = "%Y/%m/%d %H:%M:%S"
 
+    order = 10
+
     def init(self):
         core = Core.getInstance()
         if 'time' in core.configurations and 'zone' in core.configurations['time']:

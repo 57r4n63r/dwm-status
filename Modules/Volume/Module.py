@@ -8,6 +8,8 @@ class Volume(AbstractModule):
     volumeCommand = ['amixer', 'get']
     interface = None
 
+    order=30
+
     def init(self):
         core = Core.getInstance()
         if 'sound' in core.configurations and 'interface' in core.configurations['sound'] :

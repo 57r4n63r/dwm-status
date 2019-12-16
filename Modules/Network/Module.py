@@ -15,6 +15,8 @@ class Network(AbstractModule):
     wifiIcon = 'wifi_good'
     wiredIcon = 'wired'
 
+    order=40
+
     def init(self):
         core = Core.getInstance()
         self.configurations = core.configurations

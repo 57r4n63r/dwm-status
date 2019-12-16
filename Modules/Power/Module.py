@@ -12,6 +12,8 @@ class Power(AbstractModule):
     chargeFullPath = '/sys/class/power_supply/{battery}/charge_full'
     batteryName = None
 
+    order = 20
+
     def init(self):
         core = Core.getInstance()
         if 'power' in core.configurations and 'battery' in core.configurations['power'] :
