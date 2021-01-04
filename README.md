@@ -21,3 +21,13 @@ $ cp config.template.ini ~/.config/dwm-status/config.ini
 ```
 
 edit file ~/.config/dwm-status/config.ini for configurations
+
+## Plugins
+
+Plugins can be added in this directory:
+
+```
+$ ~/.config/dwm-status/Plugins
+```
+
+Refer to the exemple to create your own.
