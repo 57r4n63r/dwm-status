@@ -3,6 +3,7 @@ from subprocess import call, check_output
 from Core.Module.AbstractModule import AbstractModule
 from Core.Core import Core
 from Core.Icons import Icons
+import time
 
 class Network(AbstractModule):
     configurations = None
@@ -14,6 +15,7 @@ class Network(AbstractModule):
     interfaces = []
     wifiIcon = 'wifi_good'
     wiredIcon = 'wired'
+    wanLastChecked = False
 
     order=40
 
@@ -50,7 +52,15 @@ class Network(AbstractModule):
 
     def getWAN(self):
        if 'wanProvider' in self.configurations['networking']:
-           self.wanIp = check_output(self.getWanIpCommand).strip().decode('utf-8') 
+           if self.wanLastChecked:
+               now = time.time()
+               diff = now - self.wanLastChecked
+               if diff > 300: #5 minutes
+                   self.wanLastChecked = time.time()
+                   self.wanIp = check_output(self.getWanIpCommand).strip().decode('utf-8') 
+           else:
+               self.wanLastChecked = time.time()
+               self.wanIp = check_output(self.getWanIpCommand).strip().decode('utf-8') 
        return self.wanIp
 
     def getLan(self):
