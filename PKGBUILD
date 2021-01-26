@@ -36,7 +36,7 @@ package() {
     install -D -m755 "./dwm-status" "${pkgdir}/usr/bin/dwm-status"
 }
 
-md5sums=('0c9163ceccab7a87ae42f3024752b627'
+md5sums=('9e43077c93a19b422dde5d5b88bfee72'
          'd4f3553b3ad870d92c5073c826862fcb'
          'a6457d02a29cc5b4517207e13246efe2')
 
